@@ -59,6 +59,7 @@ resource "aws_instance" "logstash" {
       type        = "ssh"
       user        = "ec2-user"
       private_key = "/Users/ttucker/Downloads/logstash-test.pem"
+      host = "${self.public_ip}"
     }
   }
 
