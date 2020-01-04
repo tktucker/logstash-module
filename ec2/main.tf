@@ -39,9 +39,9 @@ resource "aws_security_group" "server_sg" {
 }
 
 resource "aws_instance" "logstash" {
-  ami                         = "var.ami_id"
-  instance_type               = "var.server_instance_type"
-  subnet_id                   = "var.subnet_id"
+  ami                         = var.ami_id
+  instance_type               = var.server_instance_type
+  subnet_id                   = var.subnet_id
   vpc_security_group_ids      = ["${aws_security_group.server_sg.id}"]
   key_name                    = "awsSupport-USG"
   #key_name                    = "${aws_key_pair.aws_keypair.key_name}"
