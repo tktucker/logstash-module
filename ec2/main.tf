@@ -11,7 +11,7 @@ terraform {
 # Create EC2 Logstash Instance
 
 resource "aws_security_group" "server_sg" {
-  vpc_id = "var.vpc_id"
+  vpc_id = var.vpc_id
 
   # SSH ingress access for provisioning
   ingress {
