@@ -51,4 +51,20 @@ resource "aws_instance" "logstash" {
   tags = {
     Name = "logstash"
   }
+  provisioner "remote-exec" {
+    # Install Python for Ansible
+    inline = ["sudo dnf -y install telnet"]
+
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = "/Users/ttucker/Downloads/logstash-test.pem"
+    }
+  }
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -u ec2-user -i '${self.public_ip},' --private-key /Users/ttucker/Downloads/logstash-test.pem -T 300 provision.yml"
+  }
 }
+
+
