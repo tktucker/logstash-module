@@ -5,7 +5,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {}
-  required_version = "= 0.12.17"
+  #required_version = ">= 0.12.17"
 }
 
 # Create EC2 Logstash Instance
@@ -52,4 +52,3 @@ resource "aws_instance" "logstash" {
     Name = "logstash"
   }
 }
-
