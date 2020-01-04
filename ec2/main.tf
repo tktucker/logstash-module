@@ -51,4 +51,5 @@ resource "aws_instance" "logstash" {
   tags = {
     Name = "logstash"
   }
+}
 
