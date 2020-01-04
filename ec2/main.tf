@@ -23,8 +23,8 @@ resource "aws_security_group" "server_sg" {
   }
 
   ingress {
-    from_port   = "var.logstash_server_port"
-    to_port     = "var.logstash_server_port"
+    from_port   = var.logstash_server_port
+    to_port     = var.logstash_server_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
     description = "Allow access to X servers"
