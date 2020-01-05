@@ -1,6 +1,6 @@
 ---
 
-- hosts: logstash
+- hosts: all
   become: yes
   roles:
     - logstash_server
