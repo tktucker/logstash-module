@@ -36,7 +36,7 @@
 
 - name: Update file with owner and permissions for logstash.repo
   copy:
-    src:  logstash/
+    src:  logstash/*
     dest: /etc/logstash/
     owner: root
     group: root
