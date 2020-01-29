@@ -53,7 +53,7 @@ resource "aws_instance" "logstash" {
   }
   provisioner "remote-exec" {
     # Install Python for Ansible
-    inline = ["sudo yum -y install telnet"]
+    inline = ["sudo yum -y install git"]
 
     connection {
       type        = "ssh"
