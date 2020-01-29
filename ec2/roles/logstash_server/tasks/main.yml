@@ -19,6 +19,14 @@
     group: root
     mode: '0644'
 
+  - name: Update file with owner and permissions for logstash.repo
+    copy:
+      src:  logstash/
+      dest: /etc/logstash/
+      owner: root
+      group: root
+      mode: '0644'
+
 - name: Install Elastic Search GPG Key
   rpm_key:
     state: present
@@ -30,9 +38,7 @@
     state: present
 
 
-# Example checkout code from IA repo that contains logstash files
-- git:
-    repo: 'git@ghe.coxautoinc.com:ETS-IA/aws_logs_optimizer.git'
-    dest: /tmp/aws_logs_optimizer.repo
-    accept_hostkey: True
-    #version: release-0.22
+- name: Backing up original logstash files just in case
+  archive:
+    path: /etc/logstash
+   dest: /etc/logstash/logstash-orig-files.tgz

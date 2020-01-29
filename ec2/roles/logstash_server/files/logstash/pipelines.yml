@@ -1,0 +1,59 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+#- pipeline.id: main
+#  path.config: "/etc/logstash/conf.d/*.conf"
+#  queue.type: persisted
+#  path.queue: /data/logstash/queue
+#  queue.max_bytes: 8192mb
+#  pipeline.workers: 1
+- pipeline.id: optimized
+  path.config: "/etc/logstash/conf.optimized.d/*.conf"
+  queue.type: persisted
+  path.queue: /data/logstash/queue
+  queue.max_bytes: 8192mb
+  pipeline.workers: 1
+- pipeline.id: opt49
+  path.config: "/etc/logstash/conf.opt49.d/*.conf"
+  queue.type: persisted
+  path.queue: /data/logstash/queue
+  queue.max_bytes: 8192mb
+  pipeline.workers: 1
+- pipeline.id: opt62
+  path.config: "/etc/logstash/conf.opt62.d/*.conf"
+  queue.type: persisted
+  path.queue: /data/logstash/queue
+  queue.max_bytes: 8192mb
+  pipeline.workers: 1
+- pipeline.id: opt63
+  path.config: "/etc/logstash/conf.opt63.d/*.conf"
+  queue.type: persisted
+  path.queue: /data/logstash/queue
+  queue.max_bytes: 8192mb
+  pipeline.workers: 1
+- pipeline.id: opt71
+  path.config: "/etc/logstash/conf.opt71.d/*.conf"
+  queue.type: persisted
+  path.queue: /data/logstash/queue
+  queue.max_bytes: 8192mb
+  pipeline.workers: 1
+- pipeline.id: opt94
+  path.config: "/etc/logstash/conf.opt94.d/*.conf"
+  queue.type: persisted
+  path.queue: /data/logstash/queue
+  queue.max_bytes: 8192mb
+  pipeline.workers: 1
+#- pipeline.id: labs48raw
+#  path.config: "/etc/logstash/conf.labs48raw.d/*.conf"
+#  queue.type: persisted
+#  path.queue: /data/logstash/queue
+#  queue.max_bytes: 8192mb
+#  pipeline.workers: 1
+#- pipeline.id: labs48opt
+#  path.config: "/etc/logstash/conf.labs48opt.d/*.conf"
+#  queue.type: persisted
+#  path.queue: /data/logstash/queue
+#  queue.max_bytes: 8192mb
+#  pipeline.workers: 1
+
