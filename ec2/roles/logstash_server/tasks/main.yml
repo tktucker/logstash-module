@@ -8,7 +8,7 @@
 - name: Use Java 1.8 version 
   alternatives:
     name: java
-    link: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.48.amzn1.x86_64/jre/bin/java
+    link: /usr/bin/java
     path: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.48.amzn1.x86_64/jre/bin/java
 
 - name: Update file with owner and permissions for logstash.repo
