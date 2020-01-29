@@ -31,7 +31,7 @@
 
 - name: Backing up original logstash files just in case
   archive:
-    path: /etc/logstash
+    path: /etc/logstash/*
     dest: /etc/logstash/logstash-orig-files.tgz
 
 - name: Update file with owner and permissions for logstash.repo
