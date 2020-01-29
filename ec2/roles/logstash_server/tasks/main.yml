@@ -19,14 +19,6 @@
     group: root
     mode: '0644'
 
-  - name: Update file with owner and permissions for logstash.repo
-    copy:
-      src:  logstash/
-      dest: /etc/logstash/
-      owner: root
-      group: root
-      mode: '0644'
-
 - name: Install Elastic Search GPG Key
   rpm_key:
     state: present
@@ -37,8 +29,16 @@
     name: logstash
     state: present
 
-
 - name: Backing up original logstash files just in case
   archive:
     path: /etc/logstash
-   dest: /etc/logstash/logstash-orig-files.tgz
+    dest: /etc/logstash/logstash-orig-files.tgz
+
+- name: Update file with owner and permissions for logstash.repo
+  copy:
+    src:  logstash/
+    dest: /etc/logstash/
+    owner: root
+    group: root
+    mode: '0644'
+
