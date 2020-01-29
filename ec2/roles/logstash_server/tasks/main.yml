@@ -13,7 +13,7 @@
     group: root
     mode: '0644'
 
-- name: install Elastic Search  GPG Key
+- name: install Elastic Search GPG Key
   rpm_key:
     state: present
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
@@ -23,3 +23,9 @@
     name: logstash
     state: present
 
+
+# Example checkout code from IA repo that contains logstash files
+- git:
+    repo: 'git@ghe.coxautoinc.com:ETS-IA/aws_logs_optimizer.git'
+    dest: /tmp/aws_logs_optimizer.repo
+    #version: release-0.22
