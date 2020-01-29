@@ -29,14 +29,14 @@
     name: logstash
     state: present
 
-#- name: Backing up original logstash files just in case
-#  archive:
-#    path: /etc/logstash/*
-#    dest: /etc/logstash/logstash-orig-files.tgz
+- name: Backing up original logstash files just in case
+  archive:
+    path: /etc/logstash/
+    dest: /etc/logstash/logstash-orig-files.tgz
 
 - name: Update file with owner and permissions for logstash.repo
   copy:
-    src:  logstash/*
+    src:  logstash/
     dest: /etc/logstash/
     owner: root
     group: root
