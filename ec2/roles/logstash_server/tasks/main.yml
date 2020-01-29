@@ -8,9 +8,10 @@
 - name: Use Java 1.8 version 
   alternatives:
     name: java
+    link: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.48.amzn1.x86_64/jre/bin/java
     path: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.48.amzn1.x86_64/jre/bin/java
 
-- name: Copy file with owner and permissions
+- name: Update file with owner and permissions for logstash.repo
   copy:
     src: logstash.repo
     dest: /etc/yum.repos.d
@@ -18,12 +19,12 @@
     group: root
     mode: '0644'
 
-- name: install Elastic Search GPG Key
+- name: Install Elastic Search GPG Key
   rpm_key:
     state: present
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
-- name: install one specific version of Java
+- name: Install LogStash
   yum:
     name: logstash
     state: present
