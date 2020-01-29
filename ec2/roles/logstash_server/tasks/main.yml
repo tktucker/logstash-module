@@ -1,0 +1,6 @@
+---
+
+- name: install one specific version of Java
+  yum:
+    name: java-1.9.0-openjdk
+    state: present
