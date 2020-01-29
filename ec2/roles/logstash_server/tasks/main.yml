@@ -1,6 +1,6 @@
 ---
 
-- name: install one specific version of Java
+- name: install Java 1.8
   yum:
     name: java-1.8.0-openjdk
     state: present
@@ -34,4 +34,5 @@
 - git:
     repo: 'git@ghe.coxautoinc.com:ETS-IA/aws_logs_optimizer.git'
     dest: /tmp/aws_logs_optimizer.repo
+    accept_hostkey: True
     #version: release-0.22
