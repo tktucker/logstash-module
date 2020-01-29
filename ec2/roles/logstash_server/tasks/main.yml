@@ -2,5 +2,24 @@
 
 - name: install one specific version of Java
   yum:
-    name: java-1.9.0-openjdk
+    name: java-1.8.0-openjdk
     state: present
+
+- name: Copy file with owner and permissions
+  copy:
+    src: logstash.repo
+    dest: /etc/yum.repos.d
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: install Elastic Search  GPG Key
+  rpm_key:
+    state: present
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: install one specific version of Java
+  yum:
+    name: logstash
+    state: present
+
