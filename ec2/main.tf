@@ -80,7 +80,7 @@ resource "aws_cloudwatch_metric_alarm" "autorecover" {
   comparison_operator = "GreaterThanThreshold"
   threshold           = "1"
   metric_name         = "StatusCheckFailed_System"
-  dimensions = { InstanceId = "${aws_instance.logstash.id}" }
+  #dimensions = { InstanceId = "${aws_instance.logstash.id}" }
 }
 
 
