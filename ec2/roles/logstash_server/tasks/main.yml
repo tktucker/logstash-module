@@ -42,6 +42,18 @@
     group: root
     mode: '0644'
 
+- name: Download Ruby Env required by the logstash sysv installer
+  shell: curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash -
+
+- name: Install Ruby 2.7.0
+  shell: /root/.rbenv/bin/rbenv install 2.7.0
+
+- name: Install Ruby 2.7.0
+  shell: /root/.rbenv/bin/rbenv global 2.7.0
+
+- name: Updating /etc/hosts as required by the logstash sysv5 installer
+  shell: a=`curl http://169.254.169.254/latest/meta-data/local-ipv4` ; b=`curl http://169.254.169.254/latest/meta-data/hostname` ; echo $a $b >> /etc/hosts
+
 - name: Enable SYSV Start Up Script for Logstash
   shell: /usr/share/logstash/bin/system-install /etc/logstash/startup.options sysv
 
