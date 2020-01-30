@@ -26,5 +26,5 @@ variable "aws_instance" {
 }
 
 variable "logstash" {
-  description = "Log Stash
+  description = "Log Stash"
 }
