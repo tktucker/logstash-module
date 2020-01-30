@@ -42,3 +42,11 @@
     group: root
     mode: '0644'
 
+- name: Enable SYSV Start Up Script for Logstash
+  shell: /usr/share/logstash/bin/system-install /etc/logstash/startup.options sysv
+
+- name: Add Logstash as a managed service
+  shell: chkconfig --add logstash
+
+- name: Start Logstash
+  shell: /sbin/service logstart start
