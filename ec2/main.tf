@@ -85,7 +85,7 @@ resource "aws_cloudwatch_metric_alarm" "logstash" {
   metric_name         = "StatusCheckFailed_System"
 
   dimensions {
-    InstanceId = "${aws_instance.logstash.id}"
+    InstanceId = "${self.aws_instance.logstash.id}"
   }
 
 }
