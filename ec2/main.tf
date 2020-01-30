@@ -58,13 +58,13 @@ resource "aws_instance" "logstash" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = "${file("/Users/tkt/Downloads/logstash-test.pem")}"
+      private_key = "${file("~/.ssh/logstash-test.pem")}"
       host = "${self.public_ip}"
     }
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -u ec2-user -i \"${self.public_ip},\" --private-key /Users/ttucker/Downloads/logstash-test.pem -T 300 provision.yml"
+    command = "ansible-playbook -u ec2-user -i \"${self.public_ip},\" --private-key ~/.ssh/logstash-test.pem -T 300 provision.yml"
   }
 }
 
