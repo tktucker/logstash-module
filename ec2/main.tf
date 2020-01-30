@@ -77,7 +77,8 @@ resource "aws_cloudwatch_metric_alarm" "logstash" {
   period             = "60"
   alarm_description  = "This metric auto recovers EC2 instances"
 
-  alarm_actions = ["arn:aws:automate:${var.region}:ec2:recover"]
+  alarm_actions = ["arn:aws:automate:var.region:ec2:recover"]
+  #alarm_actions = ["arn:aws:automate:${var.region}:ec2:recover"]
 
   statistic           = "Minimum"
   comparison_operator = "GreaterThanThreshold"
