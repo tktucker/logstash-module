@@ -20,3 +20,11 @@ variable "server_instance_type" {
 variable "subnet_id" {
   description = "The public subnet ID the instance should reside in"
 }
+
+variable "aws_instance" {
+  description = "AWS Instance"
+}
+
+variable "logstash" {
+  description = "Log Stash"
+}
