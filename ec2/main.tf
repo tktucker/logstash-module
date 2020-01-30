@@ -53,7 +53,7 @@ resource "aws_instance" "logstash" {
   }
   provisioner "remote-exec" {
     # Install Python for Ansible
-    inline = ["sudo yum -y install git"]
+    inline = ["sudo yum -y install git git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel"]
 
     connection {
       type        = "ssh"
