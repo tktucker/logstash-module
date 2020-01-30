@@ -69,23 +69,20 @@ resource "aws_instance" "logstash" {
 }
 
 
-# build the CloudWatch auto-recovery alarm and recovery action
-resource "aws_cloudwatch_metric_alarm" "logstash" {
-  alarm_name         = "instance-autorecovery"
-  namespace          = "AWS/EC2"
-  evaluation_periods = "2"
-  period             = "60"
-  alarm_description  = "This metric auto recovers EC2 instances"
-
-  alarm_actions = ["arn:aws:automate:var.region:ec2:recover"]
-  #alarm_actions = ["arn:aws:automate:${var.region}:ec2:recover"]
-
+resource "aws_cloudwatch_metric_alarm" "autorecover" {
+  alarm_name          = "ec2-autorecover"
+  namespace           = "AWS/EC2"
+  evaluation_periods  = "2"
+  period              = "60"
+  alarm_description   = "This metric auto recovers EC2 instances"
+  alarm_actions       = ["arn:aws:automate:us-east-1:ec2:recover"]
   statistic           = "Minimum"
   comparison_operator = "GreaterThanThreshold"
-  threshold           = "0.0"
+  threshold           = "1"
   metric_name         = "StatusCheckFailed_System"
-
-
+  dimensions {
+      InstanceId = "${aws_instance.app.id}"
+  }
 }
 
 
