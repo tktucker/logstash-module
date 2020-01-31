@@ -78,5 +78,7 @@
 - name: Add Logstash as a managed service
   shell: chkconfig --add logstash
 
-- name: Start Logstash
-  shell: /sbin/service logstart start
+- name: Start service logstash, if not started
+  service:
+    name: logstash
+    state: started
