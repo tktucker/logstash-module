@@ -34,10 +34,21 @@
 #    path: /etc/logstash/
 #    dest: /etc/logstash/logstash-orig-files.tgz
 
-- name: Update file with owner and permissions for logstash.repo
+- name: Deploy Cesar's custom logstash configs
   copy:
     src:  logstash/
     dest: /etc/logstash/
+    owner: root
+    group: root
+    mode: '0644'
+
+# Major HACK!
+# Fix me - this command doesn't cleanly run when executed via Ansible
+# curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash -
+- name: Deploy the rbenv env
+  copy:
+    src:  rbenv/
+    dest: /root/.rbenv/
     owner: root
     group: root
     mode: '0644'
