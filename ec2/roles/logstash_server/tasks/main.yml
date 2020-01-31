@@ -42,6 +42,12 @@
     group: root
     mode: '0644'
 
+- name: Update our PATH in preparation for the ruby env installer
+  shell: echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+
+- name: Set our new PATH
+  shell: source ~/.bashrc
+
 - name: Download Ruby Env required by the logstash sysv installer
   shell: curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash -
 
