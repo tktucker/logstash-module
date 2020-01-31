@@ -61,6 +61,7 @@
 
 - name: Download Ruby Env required by the logstash sysv installer
   shell: curl -sL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash -
+  ignore_errors: yes
 
 - name: Install Ruby 2.7.0
   shell: /root/.rbenv/bin/rbenv install 2.7.0
